@@ -1,0 +1,8 @@
+
+            if (true) {
+                y = temp % 10;
+            }
+            else {
+                continue;
+            }
+        

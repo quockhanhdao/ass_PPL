@@ -1,0 +1,47 @@
+
+            // Declare and initialize variables.
+            int: array [5] of integer = {1, 2, 3, 4, 5};
+            int2: integer = 10;
+            bool: boolean = true;
+            amon: string = "Hello World";
+
+            fib_nums: array [20] of integer;
+            for (i = 0, i < 20, i = i + 1) {
+                fib_nums[i] = fibonacci(i);
+            }
+
+            matrix: array [4, 4] of integer = {
+                {1, 2, 3, 4},
+                {5, 6, 7, 8},
+                {9, 10, 11, 12},
+                {13, 14, 15, 16}
+            };
+
+            // Find the largest Fibonacci number.
+            largest_fib: integer = find_largest(fib_nums);
+
+            // Find the row with the largest sum in the matrix.
+            largest_sum: integer = 0;
+            largest_sum_row: integer = -1;
+            for (i = 0, i < 4, i = i + 1) {
+                row_sum: integer = row_sum(matrix, i);
+                if (row_sum > largest_sum) {
+                    largest_sum = row_sum;
+                    largest_sum_row = i;
+                }
+            }
+
+            // Output the results.
+            printf("int: %d
+", int[0]);
+            printf("int2: %d
+", int2);
+            printf("bool: %s
+", bool ? "true" : "false");
+            printf("string: %s
+", string);
+            printf("The largest Fibonacci number is %d.
+", largest_fib);
+            printf("The row with the largest sum in the matrix is row %d, with a sum of %d.
+", largest_sum_row, largest_sum);
+        
