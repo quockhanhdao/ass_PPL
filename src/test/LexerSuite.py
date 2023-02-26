@@ -95,8 +95,8 @@ class LexerSuite(unittest.TestCase):
         self.assertTrue(TestLexer.test(testcase, expect, 18))
 
     def test19(self):
-        testcase = '''1231289'''
-        expect = '''1231289,<EOF>'''
+        testcase = '''"int: %d\\n"'''
+        expect = '''int: %d\\n,<EOF>'''
         self.assertTrue(TestLexer.test(testcase, expect, 19))
 
     def test20(self):

@@ -13,7 +13,7 @@ options {
 
 program: decllist EOF;
 decllist: decllist decl | decl;
-decl: vardecl | funcdecl;
+decl: vardecl | funcdecl | statement;
 
 // Declaration
 vardecl: idlist COLON typ SEMI
@@ -25,41 +25,41 @@ funcdecl: prototype blockstmt;
 prototype: ID COLON FUNCTION typ LB1 paramlist RB1 (INHERIT ID)?;
 
 // Statement
-statement: assignstmt SM
+statement: assignstmt
 	| ifstmt 
 	| forstmt 
 	| whilestmt 
-	| dowhilestmt SEMI
-	| breakstmt SEMI
-	| continuestmt SEMI
-	| returnstmt SEMI
-	| callstmt SEMI
+	| dowhilestmt
+	| breakstmt
+	| continuestmt
+	| returnstmt
+	| callstmt
 	| blockstmt 
-	| specfunc SEMI;
-assignstmt: scalar EQ expression;
+	| specfunc;
+assignstmt: scalar EQ expression SEMI;
 ifstmt: IF LB1 expression RB1 statement (ELSE statement);
-forstmt: FOR LB1 scalar EQ expression COMMA expression COMMA expression RB1 statement;
+forstmt: FOR LB1 scalar EQ expression COMMA expression COMMA statement RB1 statement;
 whilestmt: WHILE LB1 expression RB1 statement;
-dowhilestmt: DO blockstmt WHILE LB1 expression RB1;
-breakstmt: BREAK;
-continuestmt: CONTINUE;
-returnstmt: RETURN expression?;
-callstmt: ID LB1 arglist RB1;
+dowhilestmt: DO blockstmt WHILE LB1 expression RB1 SEMI;
+breakstmt: BREAK SEMI;
+continuestmt: CONTINUE SEMI;
+returnstmt: RETURN expression? SEMI;
+callstmt: ID LB1 arglist RB1 SEMI;
 blockstmt: LB3 linelist RB3;
 scalar: ID | idxop;
 
 // Special function
 specfunc: readInteger | printInteger | readFloat | writeFloat | readBoolean | printBoolean | readString | printString | sper | preventDefault;
-readInteger: 'readInteger' LB1 RB1;
-printInteger: 'printInteger' LB1 ID COLON 'integer' RB1;
-readFloat: 'readFloat' LB1 RB1;
-writeFloat: 'writeFloat' LB1 ID COLON 'float' RB1;
-readBoolean: 'readBoolean' LB1 RB1;
-printBoolean: 'printBoolean' LB1 ID COLON 'boolean' RB1;
-readString: 'readString' LB1 RB1;
-printString: 'printString' LB1 ID COLON 'string' RB1;
-sper: 'super' LB1 expressionlist RB1;
-preventDefault: 'preventDefault' LB1 RB1;
+readInteger: 'readInteger' LB1 RB1 SEMI;
+printInteger: 'printInteger' LB1 ID COLON 'integer' RB1 SEMI;
+readFloat: 'readFloat' LB1 RB1 SEMI SEMI;
+writeFloat: 'writeFloat' LB1 ID COLON 'float' RB1 SEMI;
+readBoolean: 'readBoolean' LB1 RB1 SEMI;
+printBoolean: 'printBoolean' LB1 ID COLON 'boolean' RB1 SEMI;
+readString: 'readString' LB1 RB1 SEMI;
+printString: 'printString' LB1 ID COLON 'string' RB1 SEMI;
+sper: 'super' LB1 expressionlist RB1 SEMI;
+preventDefault: 'preventDefault' LB1 RB1 SEMI;
 
 // Expression
 expression: term1 CONCAT term1 | term1;
@@ -67,7 +67,9 @@ term1: term2 (EQUAL | NEQUAL | SM | SME | BG | BGE) term2 | term2;
 term2: term2 (AND | OR) term3 | term3;
 term3: term3 (ADD | SUB) term4 | term4;
 term4: term4 (MUL | DIV | MOD) term5 | term5;
-term5: INTLIT | FLOATLIT | BOOLLIT | STRINGLIT | arrlit | ID | NOT ID | SUB ID | call | idxop | subexpression;
+term5: INTLIT | FLOATLIT | BOOLLIT | STRINGLIT | arrlit 
+	| ID | NOT ID | SUB ID 
+	| call | idxop | subexpression;
 subexpression: LB1 expression RB1;
 idxop: ID LB2 expressionlist RB2;
 call: ID LB1 arglist RB1;
@@ -92,8 +94,18 @@ voidtyp: VOID;
 autotyp: AUTO;
 typ: atomtyp | arrtyp | voidtyp | autotyp;
 
-// Keywords;
+// Literals
+INTLIT: [0-9] | [1-9] [0-9_]* [0-9] {self.text = self.text.replace("_", "")};
 BOOLLIT: TRUE | FALSE;
+FLOATLIT: INTPART (DECPART | DECPART? EXPPART) {self.text = self.text.replace("_", "")};
+fragment INTPART: [0-9] | [1-9] [0-9_]* [0-9];
+fragment DECPART: '.' ([0-9] | [0-9] [0-9_]* [0-9]);
+fragment EXPPART: ('e' | 'E') ('-' | '+')? ([0-9] | [0-9] [0-9_]* [0-9]);
+STRINGLIT: '"' CHARS? '"' {self.text = self.text[1:(len(self.text) - 1)]};
+fragment CHARS: (~["\\\b\f\r\n\t] | ESCAPE)+;
+fragment ESCAPE: '\\' [bfrnt"'\\]; //'];
+
+// Keywords;
 AUTO: 'auto';
 FALSE: 'false';
 INTEGER: 'integer';
@@ -145,16 +157,6 @@ DOT: '.';
 COMMA: ',';
 SEMI: ';';
 COLON: ':';
-
-// Literals
-INTLIT: [0-9] | [1-9] [0-9_]* [0-9] {self.text = self.text.replace("_", "")};
-FLOATLIT: INTPART (DECPART | DECPART? EXPPART) {self.text = self.text.replace("_", "")};
-fragment INTPART: [0-9] | [1-9] [0-9_]* [0-9];
-fragment DECPART: '.' ([0-9] | [0-9] [0-9_]* [0-9]);
-fragment EXPPART: ('e' | 'E') ('-' | '+')? ([0-9] | [0-9] [0-9_]* [0-9]);
-STRINGLIT: '"' CHARS? '"' {self.text = self.text[1:(len(self.text) - 1)]};
-fragment CHARS: (~["\\\b\f\r\n\t] | ESCAPE)+;
-fragment ESCAPE: '\\' [bfrnt"'\\]; //'];
 
 // Identifiers
 ID: [A-Za-z_] [A-Za-z0-9_]*;

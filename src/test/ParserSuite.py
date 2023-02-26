@@ -11,7 +11,7 @@ class ParserSuite(unittest.TestCase):
         self.assertTrue(TestParser.test(input, expect, 201))
 
     def test2(self):
-        input = """a + 1;"""
+        input = """b = a + 1;"""
         expect = "successful"
         self.assertTrue(TestParser.test(input, expect, 202))
 
@@ -108,12 +108,12 @@ class ParserSuite(unittest.TestCase):
             }
 
             // Output the results.
-            printf("int: %d\n", int[0]);
-            printf("int2: %d\n", int2);
-            printf("bool: %s\n", bool ? "true" : "false");
-            printf("string: %s\n", string);
-            printf("The largest Fibonacci number is %d.\n", largest_fib);
-            printf("The row with the largest sum in the matrix is row %d, with a sum of %d.\n", largest_sum_row, largest_sum);
+            printf("int:\\n", int[0]);
+            printf("int2:\\n", int2);
+            printf("bool:\\n", bool ? "true" : "false");
+            printf("string:\\n", string);
+            printf("The largest Fibonacci number is.\\n", largest_fib);
+            printf("The row with the largest sum in the matrix is row, with a sum of.\\n", largest_sum_row, largest_sum);
         """
         expect = "successful"
         self.assertTrue(TestParser.test(input, expect, 209))
