@@ -1,1 +1,1 @@
-"amind \t \n",<EOF>
+Illegal Escape In String: \ 

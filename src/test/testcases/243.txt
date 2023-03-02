@@ -1,0 +1,7 @@
+
+            main: function void () {
+                delta: integer = func1(3, "abc_");
+                inc(x, delta);
+                inc2(x, y);
+            }
+        

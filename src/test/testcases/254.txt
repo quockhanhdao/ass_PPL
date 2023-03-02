@@ -1,0 +1,8 @@
+
+            // Declare variables.
+            str = "I love programming!";
+            // Print variable values.
+            print(int_arr);
+            print(bool_var);
+            print(str);
+        

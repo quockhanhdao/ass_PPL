@@ -19,6 +19,11 @@ class MT22Visitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by MT22Parser#decllistprime.
+    def visitDecllistprime(self, ctx:MT22Parser.DecllistprimeContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by MT22Parser#decl.
     def visitDecl(self, ctx:MT22Parser.DeclContext):
         return self.visitChildren(ctx)

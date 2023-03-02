@@ -1,0 +1,4 @@
+
+            c, d, ggE: string = "Ben", "Monica", "_Tem";
+            Arr: array [3] of string = {"Bob", "Dylan", "Garrr"};
+        

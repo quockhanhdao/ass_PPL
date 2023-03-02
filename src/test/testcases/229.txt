@@ -1,0 +1,5 @@
+
+            // Declare a function.
+            myFunction: function integer (a: integer, b: integer) { return a % b;
+            }
+        

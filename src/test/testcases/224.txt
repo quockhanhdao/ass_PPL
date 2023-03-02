@@ -1,0 +1,14 @@
+
+            // Declare variables.
+            int_arr: array [5] of integer = {1, 2, 3, 4, 5};
+            bool_var: boolean = true;
+            str: string = "I love Notion!";
+            // Change variable values.
+            int_arr[2] = int_arr[2] + 10;
+            bool_var = false;
+            str = "I love programming!";
+            // Print variable values.
+            print(int_arr);
+            print(bool_var);
+            print(str);
+        

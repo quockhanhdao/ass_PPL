@@ -1,0 +1,5 @@
+
+            // Declare variables.
+            a: integer = 5;
+            b: integer = 10;
+        

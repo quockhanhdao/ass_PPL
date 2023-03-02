@@ -1,1 +1,1 @@
-false,<EOF>
+A string with a double quote (\") in it,<EOF>

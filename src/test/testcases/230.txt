@@ -1,0 +1,11 @@
+
+            // Declare variables.
+            int: array [5] of integer = {1, 2, 3, 4, 5};
+            bool: boolean = true;
+            str: string = "Hello, world!";
+            // Declare a function.
+            myFunction: function void () { for (i = 0, i < 5, i = i + 1) { print(int[i]); } if (bool == true) { print(str); } else { print("bool is false"); }
+            }
+            // Call the function.
+            myFunction();
+        

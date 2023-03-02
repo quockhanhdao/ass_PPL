@@ -1,0 +1,7 @@
+
+            // Declare variables.
+            a: integer = 5;
+            b: integer = 10;
+            // Call the function.
+            myFunction();
+        

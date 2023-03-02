@@ -1,0 +1,8 @@
+
+            if (b + c == 0) {
+                y = temp % 10;
+            }
+            else {
+                break;
+            }
+        

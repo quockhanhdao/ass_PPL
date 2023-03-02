@@ -1,0 +1,5 @@
+
+            // Call the function.
+            c = myFunction(a, b);
+            print(c);
+        

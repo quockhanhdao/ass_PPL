@@ -1,0 +1,6 @@
+
+            do {
+                b = c * d;
+            }
+            while (b != c * d);
+        

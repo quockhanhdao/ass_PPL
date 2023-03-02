@@ -1,0 +1,6 @@
+
+            inc: function void (out n: integer, inherit delta: integer) {
+                n = n + delta;
+                return;
+            }
+        

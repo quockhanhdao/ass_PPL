@@ -1,1 +1,1 @@
-String
+"A string with an endline \n in it"

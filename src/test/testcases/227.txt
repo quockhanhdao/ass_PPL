@@ -1,0 +1,11 @@
+
+            // Declare variables.
+            a: integer = 5;
+            b: integer = 10;
+            // Declare a function.
+            myFunction: function integer (x: integer, y: integer) { if (x > y) { return x; } else { return y; }
+            }
+            // Call the function.
+            c = myFunction(a, b);
+            print("The larger number is " + c);
+        

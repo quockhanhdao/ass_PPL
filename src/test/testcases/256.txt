@@ -1,0 +1,9 @@
+
+            Identifier1: integer;
+            Identifier2: string = "REOS";
+            Identifier3: boolean = false;
+            myFunction: function void () { Identifier1 = 20; Identifier3 = false; print(Identifier2 + " World!");
+            }
+            myFunction();
+            Identifier2 = "See ya";
+        

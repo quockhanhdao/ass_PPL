@@ -1,1 +1,1 @@
-false
+"A string with a double quote (\") in it"

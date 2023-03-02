@@ -1,0 +1,8 @@
+
+            do {
+                x = a + b;
+                s = r * r;
+                a[0] = s;
+            }
+            while (y && ghse == false);
+        

@@ -1,0 +1,6 @@
+
+            test: function integer () {
+                readString();
+                return 3;
+            }
+        

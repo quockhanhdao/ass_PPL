@@ -1,0 +1,5 @@
+
+            // Declare variables.
+            a: integer = 5;
+            b, c, x: string = "1", "//n", "//t//b";
+        

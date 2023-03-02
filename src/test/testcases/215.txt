@@ -1,0 +1,14 @@
+
+            a = b - c;
+            id1 = 1 + 2 * (grd * id2 + (7 - foo(4)));
+            if (fosG2 % 3 == 0) {
+                print("Hello");
+            }
+            else {return;}
+            bc = 7 / (a + b);
+            str1: string = "GJDS";
+            str2: string;
+            str3: string;
+            str3 = str1::str2;
+            str1 = str3::str1;
+        

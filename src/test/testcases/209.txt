@@ -22,7 +22,6 @@
 
             // Find the row with the largest sum in the matrix.
             largest_sum: integer = 0;
-            largest_sum_row: integer = -1;
             for (i = 0, i < 4, i = i + 1) {
                 row_sum: integer = row_sum(matrix, i);
                 if (row_sum > largest_sum) {
@@ -30,12 +29,4 @@
                     largest_sum_row = i;
                 }
             }
-
-            // Output the results.
-            printf("int:\n", int[0]);
-            printf("int2:\n", int2);
-            printf("bool:\n", bool ? "true" : "false");
-            printf("string:\n", string);
-            printf("The largest Fibonacci number is.\n", largest_fib);
-            printf("The row with the largest sum in the matrix is row, with a sum of.\n", largest_sum_row, largest_sum);
         

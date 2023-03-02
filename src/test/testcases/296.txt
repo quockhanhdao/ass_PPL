@@ -1,0 +1,14 @@
+
+            maxlst: function integer (arr: array [5] of integer) {
+                max = arr[0];
+                for (i = 1, i < 5, i = i + 1) {
+                    if (arr[i] > max) max = arr[i];
+                }
+                return max - 1;
+            }
+            main: function void () {
+                arr: array [5] of integer = {77, 93, 23, 1, 87};
+                ans = maxlst(arr);
+                preventDefault();
+            }
+        

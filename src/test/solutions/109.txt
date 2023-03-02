@@ -1,1 +1,1 @@
-"He asked me: \"Where is John?\"",<EOF>
+String with an endline at the end\n,<EOF>

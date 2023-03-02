@@ -1,0 +1,8 @@
+
+            // Declare variables.
+            x: integer = 5;
+            y: integer = 3;
+            z: integer;
+            // Declare a function.
+            myFunction: function void (a: integer, b: integer) { z = a + b; print(z);}
+        

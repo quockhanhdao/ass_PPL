@@ -1,0 +1,6 @@
+
+            // Declare variables.
+            int: array [5] of integer = {1, 2, 3, 4, 5};
+            // Call the function.
+            myFunction();
+        

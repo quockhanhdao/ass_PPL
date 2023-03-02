@@ -1,1 +1,1 @@
-String,<EOF>
+A string with an endline \n in it,<EOF>

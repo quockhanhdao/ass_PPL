@@ -1,0 +1,10 @@
+
+            // Declare variables.
+            a: integer = 5;
+            b: integer = 10;
+            // Declare a function.
+            myFunction: function void () { if (a < b) { print("a is less than b"); } else if (a > b) { print("a is greater than b"); } else { print("a is equal to b"); }
+            }
+            // Call the function.
+            myFunction();
+        

@@ -1,0 +1,12 @@
+
+            max: function integer (inherit a: integer, out b: integer) {
+                if (a > b) return a;
+                return b;
+            }
+            main: function void () {
+                a = readInteger();
+                b = readInteger();
+                ans = max(a, b);
+                printInteger(ans);
+            }
+        

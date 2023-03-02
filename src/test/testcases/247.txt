@@ -1,0 +1,5 @@
+
+            arr: array [4] of boolean = {true, false, false, true};
+            g = arr[2, 3];
+            x = x && y;
+        

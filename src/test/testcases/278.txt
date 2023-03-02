@@ -1,0 +1,8 @@
+
+            if (b + c - (foo(20) - 99) == 0) {
+                y = temp % 10;
+            }
+            else {
+                break;
+            }
+        

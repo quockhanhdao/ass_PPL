@@ -1,0 +1,8 @@
+
+            do {
+                x = a + b;
+                s = r * r + myPI;
+                a[0] = s;
+            }
+            while (y <= 9);
+        

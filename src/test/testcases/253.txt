@@ -1,0 +1,11 @@
+
+            // Declare variables.
+            a: integer = 5;
+            b: integer = 10;
+            // Declare a function.
+            myFunction: function integer (x: integer, y: integer) { if (x > y) { return x - y; } else if (x < y) { return y - x; } else { return 0; }
+            }
+            // Call the function.
+            c = myFunction(a, b);
+            print(c);
+        

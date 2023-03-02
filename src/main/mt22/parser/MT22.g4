@@ -12,7 +12,8 @@ options {
 }
 
 program: decllist EOF;
-decllist: decllist decl | decl;
+decllist: decllistprime | ;
+decllistprime: decllistprime decl | decl;
 decl: vardecl | funcdecl | statement;
 
 // Declaration
@@ -25,41 +26,41 @@ funcdecl: prototype blockstmt;
 prototype: ID COLON FUNCTION typ LB1 paramlist RB1 (INHERIT ID)?;
 
 // Statement
-statement: assignstmt
+statement: assignstmt SEMI
 	| ifstmt 
 	| forstmt 
 	| whilestmt 
-	| dowhilestmt
-	| breakstmt
-	| continuestmt
-	| returnstmt
-	| callstmt
+	| dowhilestmt SEMI
+	| breakstmt SEMI
+	| continuestmt SEMI
+	| returnstmt SEMI
+	| callstmt SEMI
 	| blockstmt 
-	| specfunc;
-assignstmt: scalar EQ expression SEMI;
-ifstmt: IF LB1 expression RB1 statement (ELSE statement);
-forstmt: FOR LB1 scalar EQ expression COMMA expression COMMA statement RB1 statement;
+	| specfunc SEMI;
+assignstmt: scalar EQ expression;
+ifstmt: IF LB1 expression RB1 statement (ELSE statement)?;
+forstmt: FOR LB1 scalar EQ expression COMMA expression COMMA assignstmt RB1 statement;
 whilestmt: WHILE LB1 expression RB1 statement;
-dowhilestmt: DO blockstmt WHILE LB1 expression RB1 SEMI;
-breakstmt: BREAK SEMI;
-continuestmt: CONTINUE SEMI;
-returnstmt: RETURN expression? SEMI;
-callstmt: ID LB1 arglist RB1 SEMI;
+dowhilestmt: DO blockstmt WHILE LB1 expression RB1;
+breakstmt: BREAK;
+continuestmt: CONTINUE;
+returnstmt: RETURN expression?;
+callstmt: ID LB1 arglist RB1;
 blockstmt: LB3 linelist RB3;
 scalar: ID | idxop;
 
 // Special function
 specfunc: readInteger | printInteger | readFloat | writeFloat | readBoolean | printBoolean | readString | printString | sper | preventDefault;
-readInteger: 'readInteger' LB1 RB1 SEMI;
-printInteger: 'printInteger' LB1 ID COLON 'integer' RB1 SEMI;
-readFloat: 'readFloat' LB1 RB1 SEMI SEMI;
-writeFloat: 'writeFloat' LB1 ID COLON 'float' RB1 SEMI;
-readBoolean: 'readBoolean' LB1 RB1 SEMI;
-printBoolean: 'printBoolean' LB1 ID COLON 'boolean' RB1 SEMI;
-readString: 'readString' LB1 RB1 SEMI;
-printString: 'printString' LB1 ID COLON 'string' RB1 SEMI;
-sper: 'super' LB1 expressionlist RB1 SEMI;
-preventDefault: 'preventDefault' LB1 RB1 SEMI;
+readInteger: 'readInteger' LB1 RB1;
+printInteger: 'printInteger' LB1 expression RB1;
+readFloat: 'readFloat' LB1 RB1 SEMI;
+writeFloat: 'writeFloat' LB1 expression RB1;
+readBoolean: 'readBoolean' LB1 RB1;
+printBoolean: 'printBoolean' LB1 expression RB1;
+readString: 'readString' LB1 RB1;
+printString: 'printString' LB1 expression RB1;
+sper: 'super' LB1 expressionlist RB1;
+preventDefault: 'preventDefault' LB1 RB1;
 
 // Expression
 expression: term1 CONCAT term1 | term1;
@@ -69,7 +70,7 @@ term3: term3 (ADD | SUB) term4 | term4;
 term4: term4 (MUL | DIV | MOD) term5 | term5;
 term5: INTLIT | FLOATLIT | BOOLLIT | STRINGLIT | arrlit 
 	| ID | NOT ID | SUB ID 
-	| call | idxop | subexpression;
+	| call | idxop | subexpression | specfunc;
 subexpression: LB1 expression RB1;
 idxop: ID LB2 expressionlist RB2;
 call: ID LB1 arglist RB1;

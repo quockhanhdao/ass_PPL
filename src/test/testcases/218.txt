@@ -1,0 +1,8 @@
+
+            for (v = 100, v >= 9, v = v / 3) {
+                if (v % 2 != 0) {
+                    break;
+                }
+                continue;
+            }
+        

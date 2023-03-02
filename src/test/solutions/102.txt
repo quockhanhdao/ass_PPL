@@ -1,1 +1,1 @@
-true,<EOF>
+this is a string,<EOF>

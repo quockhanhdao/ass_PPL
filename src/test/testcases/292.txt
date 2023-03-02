@@ -1,0 +1,11 @@
+
+            func1: function string (n: integer, b: string) {
+                if (n == 0) return 1;
+                else return n * 2;
+            }
+            main: function void () {
+                delta: integer = func1(3, "abc_");
+                inc(x, delta);
+                inc2(x, y);
+            }
+        

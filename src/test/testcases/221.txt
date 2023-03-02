@@ -1,0 +1,13 @@
+
+            // Declare variables.
+            bool_var: boolean = true;
+            int_arr: array [4] of integer = {4, 3, 2, 1};
+            float_var: float = 2.5;
+            str: string = "Hey there!";
+            for (i = 0, i < 4, i = i + 1) { int_arr[i] = int_arr[i] * 3;
+            }
+            if (bool_var == true) { print(str);
+            }
+            else { print("bool_var is false.");
+            }
+        

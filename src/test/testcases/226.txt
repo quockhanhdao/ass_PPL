@@ -1,0 +1,11 @@
+
+            Identifier1: integer;
+            Identifier2: string = "Hello";
+            Identifier3: boolean = true;
+            myFunction: function void () { Identifier1 = 20; Identifier3 = false; print(Identifier2 + " World!");
+            }
+            // Call the function multiple times.
+            myFunction();
+            Identifier2 = "Goodbye";
+            myFunction();
+        

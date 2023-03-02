@@ -1,0 +1,7 @@
+
+            {
+                writeFloat(2.4e-16);
+                bg = 9.0;
+                writeFloat(bg);
+            }
+        

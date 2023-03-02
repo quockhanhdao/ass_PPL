@@ -1,0 +1,7 @@
+
+            main: function void() {
+                print("Hello, world!");
+                b = c + 1;
+                foo(2, 3);
+            }
+        
